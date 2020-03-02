@@ -1,0 +1,6 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <ltng:require styles="{!$Resource.RemoveHeader}"/>
+   <h1 class="header">Test <span style="font-size:45px;">Limited</span></h1>
+
+
+</aura:component>	

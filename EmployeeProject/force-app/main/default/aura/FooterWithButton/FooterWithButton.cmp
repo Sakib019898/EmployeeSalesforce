@@ -1,0 +1,7 @@
+<aura:component>
+    <div class="slds-p-around_small">
+      <lightning:button label="Save" onclick="{!c.handleClose}"/>
+      <lightning:button label="Cancel" onclick="{!c.handleClose}"/>
+    </div>
+
+</aura:component>

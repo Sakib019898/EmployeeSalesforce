@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+   <div class="slds-p-around_small">
+    <h1 class="header">Contact Us</h1>
+    
+    <div class="header2">
+    <h1>Address:100,Baridhara.Dhaka</h1>
+    <h1>Contact:+88001989863922</h1>
+    </div>
+</div>
+</aura:component>

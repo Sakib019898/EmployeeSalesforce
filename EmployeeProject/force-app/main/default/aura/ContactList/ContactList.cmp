@@ -1,0 +1,43 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="EmployeeController">
+  
+    <aura:attribute Name="employeeList" type="Employee__c[]" />
+    <aura:attribute name="EmployeeObject" type="Employee__c" default="{sobjectName:'Employee__c'}"/>
+    <lightning:overlayLibrary aura:id="overLayLib" />
+    <aura:handler name="init" value="{!this}" action="{!c.handleAction}" />
+    <aura:handler event="c:EventForAdd" action="{!c.handleEvent}"/>
+    <aura:handler event="c:EventForUD" action="{!c.handleAction}" />
+    <div class="slds-p-around_small">
+        <div class="slds-grid slds-wrap">
+      <aura:iteration items="{!v.employeeList}" var="con">
+          <div class="slds-col slds-size_1-of-3 slds-p-around_small">
+          
+          <lightning:card title="{!con.Name}" footer="{!con.Email__c}" 
+                          iconName="custom:custom34">
+              <aura:set attribute="actions">
+                  <lightning:button name="{!con.Name }" value="{!con.Id}" label="View" variant="brand"
+                                    onclick="{!c.doView}"/>
+                  <lightning:button name="{!con.Name }" value="{!con.Id}" label="Edit" variant="brand"
+                                    onclick="{!c.doEdit}"/>
+                  
+              </aura:set>
+              <p class="slds-p-horizontal_small">
+                Name: {!con.Name} &nbsp; <br/>
+                Email:  {!con.Email__c}&nbsp; <br/>
+                Phone: {!con.Phone__c}  
+              </p> 
+          </lightning:card>
+          </div>
+      </aura:iteration>
+      
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</aura:component>

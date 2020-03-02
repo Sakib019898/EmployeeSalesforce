@@ -1,0 +1,13 @@
+<design:component label="Three Column Homepage Layout">
+    
+    <flexipage:template>
+    	
+        <flexipage:region name="header" defaultWidth="Large"/>
+        
+        <flexipage:region name="one_region" defaultWidth="Large"/>
+        
+        <flexipage:region name="footer" defaultWidth="Large"/>
+        
+    </flexipage:template>
+	
+</design:component>

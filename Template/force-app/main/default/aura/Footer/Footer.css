@@ -1,0 +1,16 @@
+.THIS {
+    background-color:darkslategrey;
+    width:100%;
+    height:100px;
+    color: white;
+}
+
+.THIS.header{
+    font-size: 35px;
+    
+}
+.THIS.header2{
+    font-size: 20px;
+    
+}
+

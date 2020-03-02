@@ -1,0 +1,21 @@
+<aura:component>
+
+    <aura:attribute name="id" type="String"/>
+    <div>
+        
+        <lightning:recordEditForm
+        recordId="{!v.id}"
+        objectApiName="Employee__c" 
+        onsuccess="{!c.handleSuccess}" >
+        <!-- the messages component is for error messages -->
+        <lightning:messages />
+      
+        <lightning:inputField fieldName="Name" />
+        <lightning:inputField fieldName="Phone__c" />
+        <lightning:inputField fieldName="Email__c" />
+      <lightning:button variant="brand" type="submit" name="save" label="Save" />
+      </lightning:recordEditForm>
+      
+      </div>
+      
+</aura:component>	

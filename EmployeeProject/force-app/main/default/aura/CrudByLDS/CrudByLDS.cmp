@@ -1,0 +1,93 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="EmployeeController">
+
+    <aura:attribute Name="name" type="String" />
+    <aura:attribute Name="email" type="String" />
+    <aura:attribute Name="phone" type="String" />
+    <aura:attribute Name="updatedName" type="String" />
+    <aura:attribute Name="updatedEmail" type="String" />
+    <aura:attribute Name="updatedPhone" type="String" />
+    <aura:attribute Name="id" type="String" />
+
+    <aura:attribute Name="flag" type="boolean" default="false" />
+    <aura:attribute Name="optionsForUpdate" type="Employee__c[]" />
+    <aura:attribute Name="optionsForDelete" type="Employee__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    
+    <aura:attribute name="recordForView" type="Object" />
+    <aura:attribute name="recordFieldsForView" type="Object" />
+    <aura:attribute name="recordErrorForView" type="String"/> 
+    
+    <force:recordData aura:id="recordViewer" 
+                       layoutType="FULL"
+                       recordId="{!v.id}" 
+                       mode="VIEW"
+                       targetRecord="{!v.recordForView}"
+                       targetFields="{!v.recordFieldsForView}"
+                       targetError="{!v.recordErrorForView}" />
+
+    
+    
+    
+    
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="recordFields" type="Object" />
+    <aura:attribute name="recordError" type="String"/> 
+    
+    
+
+
+
+     <force:recordData aura:id="recordCreator" 
+                       layoutType="FULL"
+                       mode="VIEW"
+                       targetRecord="{!v.record}"
+                       targetFields="{!v.recordFields}"
+                       targetError="{!v.recordError}" />
+
+                       <div>
+                    
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:input label="Enter Name" value="{!v.recordFields.Name}" required="true" />
+
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:input label="Enter Email" value="{!v.recordFields.Email__c}" required="true" />
+            </div>
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:input label="Enter Phone" value="{!v.recordFields.Phone__c}" required="true" />
+
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:input label="Any comments" required="false" />
+            </div>
+        </div>
+        <lightning:button variant="success" label="Insert Data" onclick="{!c.doSave}"/>
+    </div>
+    
+    <div>
+    <lightning:combobox aura:id="categoryPicklist" label="Update" value="inProgress" placeholder="Select Name" options="{!v.optionsForUpdate}"/>
+    <lightning:button variant="brand" label="Select" onclick="{!c.doSelect}"/>
+</div>
+<aura:if isTrue="{!v.flag}">
+    <div>
+        <lightning:input label="Update Name" value="{!v.updatedName}" required="false" />
+        <lightning:input label="Update Email" value="{!v.updatedEmail}" required="false" />
+        <lightning:input label="Update Phone" value="{!v.updatedPhone}" required="false" />
+        <lightning:button variant="success"  label="Update" onclick="{!c.doUpdate}"/>
+
+    </div>
+
+</aura:if>
+<div>
+    <lightning:combobox aura:id="categoryPicklist2" label="Delete" value="inProgress" placeholder="Select Name For Delete" options="{! v.optionsForDelete}"/>
+    <lightning:button variant="success"  label="Delete" onclick="{!c.doRemove}"/>
+</div>
+
+
+
+</aura:component>

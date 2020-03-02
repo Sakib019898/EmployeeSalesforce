@@ -1,0 +1,18 @@
+<aura:component>
+    <aura:attribute Name="idofuser" type="String"/>
+    <aura:attribute Name='counter' type="Integer" default="0"/>
+    
+    <aura:attribute name="recordForDelete" type="Object" />
+    <aura:attribute name="recordFieldsForDelete" type="Object" />
+    <aura:attribute name="recordErrorForDelete" type="String"/>                   
+    <force:recordData aura:id="recordRemover"
+                      recordId="{!v.idofuser}" 
+                      layoutType="FULL" 
+                      mode="EDIT"
+                      targetRecord="{!v.recordForDelete}"
+                      targetFields="{!v.recordFieldsForDelete}"
+                      targetError="{!v.recordErrorForDelete}" 
+                      recordUpdated="{!c.recordUpdated}"/>
+                   
+    
+</aura:component>	

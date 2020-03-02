@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordObj" type="String" />
+    <div class="slds-p-around_small">
+        <lightning:recordForm
+         recordId="{!v.recordObj}"
+         objectApiName="Employee__c" 
+         layoutType="Full" 
+         columns="2" 
+         mode="readonly" />
+    </div>
+
+</aura:component>

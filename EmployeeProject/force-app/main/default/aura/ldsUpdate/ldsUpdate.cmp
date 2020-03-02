@@ -1,0 +1,21 @@
+<aura:component>
+    <aura:attribute Name="idofuser" type="String"/>
+    <aura:attribute Name='counter' type="Integer" default="0"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="recordNew" type="Employee__c" />
+    <aura:attribute name="newName" type="String" />
+    <aura:attribute name="newPhone" type="String" />
+    <aura:attribute name="newEmail" type="String" />
+  
+    <aura:attribute name="recordFieldsForUpdate" type="Object" />
+    <aura:attribute name="recordForUpdate" type="Object" />
+    <aura:attribute name="recordErrorForUpdate" type="String"/>                   
+    <force:recordData aura:id="recordUpdate"
+                      recordId="{!v.idofuser}" 
+                      layoutType="FULL" 
+                      mode="EDIT"
+                      targetRecord="{!v.recordForUpdate}"
+                      targetFields="{!v.recordFieldsForUpdate}"
+                      targetError="{!v.recordErrorForUpdate}" 
+                      recordUpdated="{!c.recordUpdated}"/>
+</aura:component>	
